@@ -1,3 +1,0 @@
-FROM maven:3.9.0-eclipse-temurin-17-focal
-RUN ln -fs /usr/share/zoneinfo/Australia/Eucla /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
