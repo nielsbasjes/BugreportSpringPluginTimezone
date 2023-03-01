@@ -1,0 +1,5 @@
+.idea
+target
+.m2
+*.jar
+.bash_history
