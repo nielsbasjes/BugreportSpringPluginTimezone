@@ -30,10 +30,10 @@ UserSpecificDocker
 buildDocker eucla
 buildDocker hawaii
 
-docker run -it --rm -v $PWD:/home/${USER_NAME}/app -u ${USER_ID}:${GROUP_ID} -w "/home/${USER_NAME}/app" maven-eucla-${USER_NAME} mvn clean package
+docker run -it --rm -v $PWD:/home/${USER_NAME}/app -v "${HOME}/.m2:/home/${USER_NAME}/.m2" -u ${USER_ID}:${GROUP_ID} -w "/home/${USER_NAME}/app" maven-eucla-${USER_NAME} mvn clean package
 mv target/timezone-1.0-SNAPSHOT.jar eucla.jar
 
-docker run -it --rm -v $PWD:/home/${USER_NAME}/app -u ${USER_ID}:${GROUP_ID} -w "/home/${USER_NAME}/app" maven-hawaii-${USER_NAME} mvn clean package
+docker run -it --rm -v $PWD:/home/${USER_NAME}/app -v "${HOME}/.m2:/home/${USER_NAME}/.m2" -u ${USER_ID}:${GROUP_ID} -w "/home/${USER_NAME}/app" maven-hawaii-${USER_NAME} mvn clean package
 mv target/timezone-1.0-SNAPSHOT.jar hawaii.jar
 
 diffoscope eucla.jar hawaii.jar
